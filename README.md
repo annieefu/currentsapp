@@ -1,6 +1,6 @@
-# Currents - Chrome Extension
+# Currents: A Stream of Consciousness Chrome extension
 
-Conceptualized by Annie Fu and Dana Gong during undergrad at Cornell, Currents is a Chrome extension that prompts you at random times throughout your day to write stream-of-consciousness journal entries while you browse the web. The goal is to gain awareness of what we daydream about, get distracted by, and are working on during various seasons of our lives.
+Conceptualized by Annie Fu and Dana Gong during their undergrads at Cornell, Currents is a Chrome extension that prompts you at random times throughout your day to write stream-of-consciousness journal entries while you browse the web. The goal is to gain awareness of what we daydream about, get distracted by, and are working on during various seasons of our lives.
 
 ## Features
 - Set the number of prompts you'd like to pop up throughout your day.
