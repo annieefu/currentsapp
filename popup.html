@@ -1,32 +1,71 @@
-
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Word Counter</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="A simple word counter webapp">
-        <link rel="stylesheet" type="text/css" media="screen" href="styles/all.css" />
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <h1>🌊 Currents</h1>
+    </div>
 
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <main>
-            <h1>Currently:</h1>
-            <aside id="word-counter-container">
-                <h2> Word count </h2>
-                <div id="word-counter" class="counter">
-                    <p id="character-count"></p>
-                    <p id="word-count"></p>
-                    <p id="sentence-count"></p>
-                    <p id="most-used-word"></p>
-                </div>
-            </aside>
-            <div id="word-input-container">
-                <textarea name="word-input" id="word-input" placeholder="Start typing"></textarea>
-            </div>
-        </main>
-    </body>
-    <script src="popup.js"></script>
+    <div id="draftReminder" class="draft-reminder" style="display: none;">
+      <p><strong>📝 You have an unfinished entry!</strong></p>
+      <button id="resumeDraft" class="btn-primary">Resume Writing</button>
+    </div>
+
+    <div class="section">
+      <h2>Settings</h2>
+      
+      <div class="setting-item">
+        <label for="enabled">
+          <span>Enable Prompts</span>
+          <input type="checkbox" id="enabled" class="toggle">
+        </label>
+      </div>
+
+      <div class="setting-item">
+        <label for="wordsRequired">Required Words</label>
+        <input type="number" id="wordsRequired" min="10" max="500" value="50">
+      </div>
+
+      <div class="setting-item">
+        <label for="promptsPerDay">Prompts Per Day</label>
+        <input type="number" id="promptsPerDay" min="1" max="20" value="3">
+      </div>
+
+      <button id="saveSettings" class="btn-primary">Save Settings</button>
+      <button id="testPrompt" class="btn-secondary">Test Prompt Now</button>
+    </div>
+
+    <div class="section">
+      <h2>Recent Entries</h2>
+      <div id="entriesList" class="entries-list">
+        <p class="empty-state">No entries yet. Start journaling!</p>
+      </div>
+      <button id="viewAll" class="btn-secondary">View All Entries</button>
+      <button id="exportEntries" class="btn-secondary">Export Entries</button>
+      <button id="importEntries" class="btn-secondary">Import Entries</button>
+      <input type="file" id="importFileInput" accept=".json" style="display: none;">
+    </div>
+
+    <div id="missedSection" class="section" style="display: none;">
+      <h2>Missed Prompts</h2>
+      <div id="missedList" class="missed-list">
+        <p class="empty-state">No missed prompts</p>
+      </div>
+      <button id="clearMissed" class="btn-secondary">Clear Missed</button>
+    </div>
+
+    <div class="footer">
+      <p class="stats" id="stats">Total entries: 0</p>
+      <p class="stats" id="missedStats" style="display: none;"></p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
 </html>

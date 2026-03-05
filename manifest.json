@@ -1,7 +1,39 @@
 {
-    "manifest_version": 2,
-    "name": "Currents App",
-    "version": "0.1",
-    "browser_action": {"default_popup": "popup.html", "default_title": "Check to see if our code is on this page", "default_icon": "cloud_logo.png"}
+  "manifest_version": 3,
+  "name": "Currents",
+  "version": "1.0",
+  "description": "Random journal prompts throughout your browsing day",
+  "permissions": [
+    "storage",
+    "alarms",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "cloud_logo.png",
+      "48": "cloud_logo.png",
+      "128": "cloud_logo.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
   }
-  
+}
